@@ -13,13 +13,19 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname)); // ✅ Serve static files like HTML/CSS/JS from your folder
 
-// Database setup
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'carmelo27', // Your password
-  database: 'jsa_database'
+require('dotenv').config();
+const mysql = require('mysql2');
+
+const connection = mysql.createConnection(process.env.MYSQL_URL);
+
+connection.connect((err) => {
+    if (err) {
+        console.error("Database connection failed:", err);
+        return;
+    }
+    console.log("Connected to Railway MySQL!");
 });
+
 
 db.connect((err) => {
   if (err) throw err;
