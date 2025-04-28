@@ -14,7 +14,6 @@ app.use(cors());
 app.use(express.static(__dirname)); // ✅ Serve static files like HTML/CSS/JS from your folder
 
 require('dotenv').config();
-const mysql = require('mysql2');
 
 const connection = mysql.createConnection(process.env.MYSQL_URL);
 
