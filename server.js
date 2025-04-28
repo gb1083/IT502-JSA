@@ -26,7 +26,7 @@ connection.connect((err) => {
 });
 
 
-db.connect((err) => {
+connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to MySQL database');
 });
@@ -36,7 +36,7 @@ app.post('/member-signup', (req, res) => { // ✅ match frontend route
   const { name, email, message } = req.body;  // ✅ match database column
 
   const query = 'INSERT INTO members (name, email, message) VALUES (?, ?, ?)';
-  db.query(query, [name, email, message], (err, result) => {
+  connection.query(query, [name, email, message], (err, result) => {
     if (err) {
       console.error('Error during membership registration:', err);
       return res.status(500).send('Error during registration');
@@ -48,7 +48,7 @@ app.post('/member-signup', (req, res) => { // ✅ match frontend route
 // Endpoint to get all members (for E-board view)
 app.get('/members', verifyToken, (req, res) => {
   const query = 'SELECT * FROM members';
-  db.query(query, (err, result) => {
+  connection.query(query, (err, result) => {
     if (err) throw err;
     res.json(result);
   });
@@ -61,7 +61,7 @@ app.post('/signup', (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   const query = 'INSERT INTO eboard_members (username, email, password_hash, role) VALUES (?, ?, ?, ?)';
-  db.query(query, [username, email, hashedPassword, role], (err, result) => {
+  connection.query(query, [username, email, hashedPassword, role], (err, result) => {
     if (err) {
       res.status(500).send('Error in registration');
     } else {
@@ -74,7 +74,7 @@ app.post('/signup', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   const query = 'SELECT * FROM eboard_members WHERE username = ?';
-  db.query(query, [username], (err, result) => {
+  connection.query(query, [username], (err, result) => {
     if (err) throw err;
 
     if (result.length > 0 && bcrypt.compareSync(password, result[0].password_hash)) {
@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
 
 // Get all events (public)
 app.get('/events', (req, res) => {
-  db.query('SELECT * FROM events', (err, result) => {
+  connection.query('SELECT * FROM events', (err, result) => {
     if (err) throw err;
     res.json(result);
   });
@@ -99,7 +99,7 @@ app.post('/events', verifyToken, (req, res) => {
   const { event_name, event_date, event_location, event_description } = req.body;
 
   const query = 'INSERT INTO events (event_name, event_date, event_location, event_description) VALUES (?, ?, ?, ?)';
-  db.query(query, [event_name, event_date, event_location, event_description], (err, result) => {
+  connection.query(query, [event_name, event_date, event_location, event_description], (err, result) => {
     if (err) {
       return res.status(500).json({ message: 'Failed to save event' });
     }
@@ -112,7 +112,7 @@ app.delete('/events/:id', verifyToken, (req, res) => {
   const eventId = req.params.id;
 
   const query = 'DELETE FROM events WHERE id = ?';
-  db.query(query, [eventId], (err, result) => {
+  connection.query(query, [eventId], (err, result) => {
     if (err) {
       console.error('Error deleting event:', err);
       return res.status(500).json({ message: 'Failed to delete event' });
@@ -142,7 +142,7 @@ app.delete('/members/:id', verifyToken, (req, res) => {
   const memberId = req.params.id;
 
   const query = 'DELETE FROM members WHERE id = ?';
-  db.query(query, [memberId], (err, result) => {
+  connection.query(query, [memberId], (err, result) => {
     if (err) {
       console.error('Error deleting member:', err);
       return res.status(500).json({ message: 'Failed to delete member' });
