@@ -1,0 +1,313 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/sakura-blossom.png'); /* Correct path to the image */
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the image covers the entire page */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-position: center center; /* Centers the image */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes up the full height */
+}
+
+/* Global Heading Styles */
+h1, h2, h3 {
+    font-family: 'Noto Sans JP', sans-serif; /* Japanese-inspired font */
+    color: white; /* Make headings white so they contrast with the background */
+}
+
+a {
+    color: #E60012; /* Red, a prominent color in Japanese culture */
+    text-decoration: none;
+}
+
+/* Header Navigation */
+header {
+    background-color: rgba(26, 26, 26, 0.6); /* Semi-transparent black background for header */
+    padding: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li a {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+header nav ul li a:hover {
+    background-color: #E60012;
+    border-radius: 5px;
+}
+
+/* Home Section */
+#home {
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    color: white; /* White text for visibility */
+    margin-bottom: 100px; /* Adds space at the bottom of the section to prevent footer overlap */
+}
+
+#home h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+#home p {
+    font-size: 1.5em;
+}
+
+/* Buttons */
+button {
+    background-color: #E60012;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #d40010;
+}
+
+/* About Us Section */
+#about-us {
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+#about-us h2 {
+    font-size: 2em;
+    color: #E60012;
+}
+
+/* Events Section */
+#events {
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    text-align: center;
+}
+
+.event-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.event {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event h3 {
+    font-size: 1.8em;
+    color: #E60012;
+}
+
+.event button {
+    background-color: #E60012;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.event button:hover {
+    background-color: #d40010;
+}
+
+/* Membership Section */
+#membership {
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+#membership button {
+    background-color: #E60012;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#membership button:hover {
+    background-color: #d40010;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 20px;
+    background-color: rgba(248, 248, 248, 0.8); /* Semi-transparent light background */
+    text-align: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #E60012;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #d40010;
+}
+
+/* Footer Section */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto; /* This ensures that the footer stays at the bottom */
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure Everything is Readable on the Background */
+#home, #about-us, #events, #membership, #contact {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black for content readability */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Success Page Styles */
+.success-section {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for content readability */
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+.success-section h1 {
+    font-size: 2.5em;
+    color: #E60012;
+}
+
+.success-section p {
+    font-size: 1.2em;
+}
+
+.success-section .button {
+    background-color: #E60012;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.success-section .button:hover {
+    background-color: #d40010;
+}
+
+/* Success Page - Membership Success */
+.success-membership-section {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for content readability */
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+.success-membership-section h1 {
+    font-size: 2.5em;
+    color: #E60012;
+}
+
+.success-membership-section p {
+    font-size: 1.2em;
+}
+
+.success-membership-section .button {
+    background-color: #E60012;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.success-membership-section .button:hover {
+    background-color: #d40010;
+}
+/* Add this to your styles.css */
+
+.highlight-background {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Ensure text is visible */
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
