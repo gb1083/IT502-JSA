@@ -7,7 +7,7 @@ document.getElementById("membership-form")?.addEventListener("submit", function(
     const email = document.getElementById("email").value;
     const message = document.getElementById("reason-for-joining").value;
 
-    fetch('http://localhost:3000/member-signup', {
+    fetch('https://it502-jsa.onrender.com/member-signup', {
         method: 'POST',
         body: JSON.stringify({ name, email, message }),
         headers: { 'Content-Type': 'application/json' }
@@ -35,7 +35,7 @@ if (signupForm) {
         const password = document.getElementById("password").value;
         const role = document.getElementById("role").value;
 
-        fetch('http://localhost:3000/signup', {
+        fetch('https://it502-jsa.onrender.com/signup', {
             method: 'POST',
             body: JSON.stringify({ username, email, password, role }),
             headers: { 'Content-Type': 'application/json' }
@@ -75,7 +75,7 @@ document.getElementById("login-form")?.addEventListener("submit", function(event
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    fetch('http://localhost:3000/login', {
+    fetch('https://it502-jsa.onrender.com/login', {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' }
@@ -123,7 +123,7 @@ document.querySelector('a[href="logout.html"]')?.addEventListener('click', funct
 document.addEventListener("DOMContentLoaded", function() {
     const eventsList = document.getElementById("events-list");
     if (eventsList) {
-        fetch('http://localhost:3000/events', {
+        fetch('https://it502-jsa.onrender.com/events', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -158,7 +158,7 @@ document.getElementById("edit-event-form")?.addEventListener("submit", function(
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch('http://localhost:3000/events', {
+        fetch('https://it502-jsa.onrender.com/events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function loadAdminEvents() {
     const token = localStorage.getItem("token");
 
-    fetch('http://localhost:3000/events', {
+    fetch('https://it502-jsa.onrender.com/events', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -234,7 +234,7 @@ function deleteEvent(eventId) {
     const token = localStorage.getItem("token");
 
     if (confirm('Are you sure you want to delete this event?')) {
-        fetch(`http://localhost:3000/events/${eventId}`, {
+        fetch(`https://it502-jsa.onrender.com/events/${eventId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (membersList) {
         const token = localStorage.getItem("token");
 
-        fetch('http://localhost:3000/members', {
+        fetch('https://it502-jsa.onrender.com/members', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -288,7 +288,7 @@ function deleteMember(memberId) {
     const token = localStorage.getItem("token");
 
     if (confirm('Are you sure you want to delete this member?')) {
-        fetch(`http://localhost:3000/members/${memberId}`, {
+        fetch(`https://it502-jsa.onrender.com/${memberId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
