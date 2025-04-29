@@ -17,12 +17,14 @@ app.use(express.static(__dirname));
 // ✅ Create a Pool to Prevent Dropped Connections
 const connection = mysql.createPool({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,  // ✅ Added port for external access
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  connectTimeout: 20000  // ✅ Increased timeout to 20 seconds
 });
 
 // ✅ Log Database Connection Status
